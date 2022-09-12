@@ -1,8 +1,11 @@
-const App = () => {
+import TaskInput from "./components/Tasks/TaskInput/TaskInput";
 
+const App = () => {
   return (
     <div>
-      <p>To do list</p>
+      <section>
+        <TaskInput />
+      </section>
     </div>
   );
 };
