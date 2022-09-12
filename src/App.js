@@ -1,11 +1,16 @@
 import TaskInput from "./components/Tasks/TaskInput/TaskInput";
 
 const App = () => {
+  const addTaskHandler = () => {
+    console.log('add task');
+  };
+
   return (
     <div>
-      <section>
-        <TaskInput />
+      <section id="task-form">
+        <TaskInput onAddTask={addTaskHandler} />
       </section>
+      <section id="tasks"></section>
     </div>
   );
 };

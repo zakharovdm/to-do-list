@@ -1,7 +1,10 @@
-import { useState } from 'react';
+import { useState } from "react";
+
+import Button from "../../UI/Button/Button";
+import "./TaskInput.css";
 
 const TaskInput = (props) => {
-  const [enteredValue, setEnteredValue] = useState('');
+  const [enteredValue, setEnteredValue] = useState("");
 
   const taskInputChangeHandler = (evt) => {
     setEnteredValue(evt.target.value);
@@ -9,8 +12,8 @@ const TaskInput = (props) => {
 
   const formSubmitHandler = (evt) => {
     evt.preventDefault();
-    props.onAddTaks(enteredValue);
-  }
+    props.onAddTask(enteredValue);
+  };
 
   return (
     <form onSubmit={formSubmitHandler}>
@@ -18,7 +21,7 @@ const TaskInput = (props) => {
         <label>Task</label>
         <input type="text" onChange={taskInputChangeHandler} />
       </div>
-      <button>Add Task</button>
+      <Button type="submit">Add task</Button>
     </form>
   );
 };
