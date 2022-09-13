@@ -1,16 +1,46 @@
+import { useState } from "react";
+
 import TaskInput from "./components/Tasks/TaskInput/TaskInput";
+import TaskList from "./components/Tasks/TaskList/TaskList";
+import "./App.css";
 
 const App = () => {
-  const addTaskHandler = () => {
-    console.log('add task');
+  const [tasks, setTask] = useState([
+    { text: "One task", id: "t1" },
+    { text: "Two task", id: "t2" },
+  ]);
+
+  const addTaskHandler = (enteredText) => {
+    setTask((prevTask) => {
+      const updatedTasks = [...prevTask];
+      updatedTasks.unshift({ text: enteredText, id: Math.random().toString() });
+      return updatedTasks;
+    });
   };
+
+  const deleteItemHandler = (taskId) => {
+    setTask((prevTasks) => {
+      const updatedTasks = prevTasks.filter((task) => task.id !== taskId);
+      return updatedTasks;
+    })
+  };
+
+  let content = (
+    <p style={{ textAlign: "center" }}>No tasks found. Maybe add one?</p>
+  )
+
+  if (tasks.length > 0) {
+    content = <TaskList items={tasks} onDeleteItem={deleteItemHandler} />
+  }
 
   return (
     <div>
       <section id="task-form">
         <TaskInput onAddTask={addTaskHandler} />
       </section>
-      <section id="tasks"></section>
+      <section id="tasks">
+        {content}
+      </section>
     </div>
   );
 };
