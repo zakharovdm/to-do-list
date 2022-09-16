@@ -13,6 +13,7 @@ Web application for making a task list.
 
 ### Application functionality.
 
+![functionality](./public/To_do_list.gif)
 
 ### Get started.
 
