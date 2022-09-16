@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import TaskInput from "./components/Tasks/TaskInput/TaskInput";
 import TaskList from "./components/Tasks/TaskList/TaskList";
-import "./App.css";
+import styles from "./App.module.css";
 
 const App = () => {
   const [tasks, setTask] = useState([
@@ -22,25 +22,23 @@ const App = () => {
     setTask((prevTasks) => {
       const updatedTasks = prevTasks.filter((task) => task.id !== taskId);
       return updatedTasks;
-    })
+    });
   };
 
   let content = (
     <p style={{ textAlign: "center" }}>No tasks found. Maybe add one?</p>
-  )
+  );
 
   if (tasks.length > 0) {
-    content = <TaskList items={tasks} onDeleteItem={deleteItemHandler} />
+    content = <TaskList items={tasks} onDeleteItem={deleteItemHandler} />;
   }
 
   return (
     <div>
-      <section id="task-form">
+      <section id={styles["task-form"]}>
         <TaskInput onAddTask={addTaskHandler} />
       </section>
-      <section id="tasks">
-        {content}
-      </section>
+      <section id={styles.tasks}>{content}</section>
     </div>
   );
 };

@@ -1,9 +1,9 @@
 import TaskItem from "../TaskItem/TaskItem";
-import "./TaskList.css";
+import styles from "./TaskList.module.css";
 
 const TaskList = (props) => {
   return (
-    <ul className="task-list">
+    <ul className={styles["task-list"]}>
       {props.items.map((task) => {
         return (
           <TaskItem key={task.id} id={task.id} onDelete={props.onDeleteItem}>

@@ -1,4 +1,4 @@
-import "./TaskItem.css";
+import styles from "./TaskItem.module.css";
 
 const TaskItem = (props) => {
   const deleteHandler = () => {
@@ -6,7 +6,7 @@ const TaskItem = (props) => {
   };
 
   return (
-    <li className="task-item" onClick={deleteHandler}>
+    <li className={styles["task-item"]} onClick={deleteHandler}>
       {props.children}
     </li>
   );
