@@ -5,7 +5,7 @@
 
 Web application for making a task list.
 
-[To do list app](https://to-do-list-240qnx328-zakharovdm.vercel.app)
+[To do list app](https://to-do-list-xi-sand.vercel.app)
 
 ### Stack:
 
